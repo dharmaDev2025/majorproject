@@ -1,0 +1,20 @@
+<% layout('layouts/boiler') -%>
+<body>
+  <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+    <% for (let product of products) { %>
+      <a href="/listing/<%=product.id%>" class="link-list">
+    <div class="card" style="width: 20rem;">
+      
+      <img src="<%= product.image %>" class="card-img-top" alt="image" style="height: 20rem;">
+      <div class="card-body">
+        <p class="card-text"> 
+          <%=product.title%><br>
+          price-<%= product.price.toLocaleString("en-IN")%>/night
+        </p>
+      </div>
+    </div>
+    </a>
+  <% } %>
+
+  </div>
+</body>

@@ -1,0 +1,40 @@
+<% layout('layouts/boiler') -%>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <form method="post" action="/createnew">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" name="price" class="form-control" id="price" placeholder="Enter price">
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="description" class="form-control" id="description" rows="4" placeholder="Enter description here"></textarea>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" name="country" class="form-control" id="country" placeholder="Enter country">
+        </div>
+        <div class="col">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" name="location" class="form-control" id="location" placeholder="Enter location">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Image URL</label>
+        <input type="text" name="image" class="form-control" id="image" placeholder="URL of image">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

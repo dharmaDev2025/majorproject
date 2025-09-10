@@ -1,0 +1,65 @@
+/* -------- Page layout -------- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Make main content flexible to push footer down */
+main {
+  flex: 1;
+}
+
+/* -------- Footer styling -------- */
+footer.footer {
+  background-color: #201099 !important;  /* dark blue background */
+  color: white !important;                /* text color */
+  padding: 1rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+footer.footer .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+footer.footer .socialmedia i {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  color: white !important;               /* forces icon color */
+}
+
+footer.footer .fa-compass {
+  color: red !important;                 /* compass visible */
+}
+
+footer.footer .privacy a {
+  text-decoration: none;
+  color: white !important;               /* link color visible */
+}
+
+footer.footer .privacy a:hover {
+  text-decoration: underline;
+}
+
+footer.footer .companyname p.name {
+  margin: 0;
+}
+
+/* -------- Form centering helper -------- */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------- Remove underlines from links on cards -------- */
+.link-list {
+  text-decoration: none;
+  color: inherit;
+}

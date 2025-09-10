@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <form action="/edit/<%=product.id%>?_method=put" method="post">
+        <input type="text" placeholder="enter title" name="title" value="<%=product.title%>" required><br>
+        <input type="text" placeholder="enter urlof img" name="image" required value="<%=product.image%>"><br>
+        <input type="text" placeholder="enter location" name="location" value="<%=product.location%>" required><br>
+        <input type="number" placeholder="enter price" name="price" value="<%=product.price%>" required><br>
+        <input type="text" placeholder="enter  counyry" name="country"  value="<%=product.country%>"><br>
+        <textarea name="descrpition" required>descrpition</textarea>
+        <button>create</button>
+    </form>
+    
+    
+</body>
+</html>
