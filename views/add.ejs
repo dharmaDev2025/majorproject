@@ -1,40 +1,43 @@
-<% layout('layouts/boiler') -%>
+<% layout('layouts/boiler') %>
 
-<div class="row">
-  <div class="col-md-6 offset-md-3">
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2 class="mb-4 text-center">Add New Product</h2>
     <form method="post" action="/createnew">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
+        <input type="text" name="title" class="form-control" id="title" placeholder="Enter title" required>
       </div>
 
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
-        <input type="number" name="price" class="form-control" id="price" placeholder="Enter price">
+        <input type="number" name="price" class="form-control" id="price" placeholder="Enter price" required>
       </div>
 
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea name="description" class="form-control" id="description" rows="4" placeholder="Enter description here"></textarea>
+        <textarea name="description" class="form-control" id="description" rows="4" placeholder="Enter description" required></textarea>
       </div>
 
       <div class="row mb-3">
         <div class="col">
           <label for="country" class="form-label">Country</label>
-          <input type="text" name="country" class="form-control" id="country" placeholder="Enter country">
+          <input type="text" name="country" class="form-control" id="country" placeholder="Enter country" required>
         </div>
         <div class="col">
           <label for="location" class="form-label">Location</label>
-          <input type="text" name="location" class="form-control" id="location" placeholder="Enter location">
+          <input type="text" name="location" class="form-control" id="location" placeholder="Enter location" required>
         </div>
       </div>
 
       <div class="mb-3">
         <label for="image" class="form-label">Image URL</label>
-        <input type="text" name="image" class="form-control" id="image" placeholder="URL of image">
+        <input type="text" name="image" class="form-control" id="image" placeholder="Enter image URL" required>
       </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
+ 
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </div>
     </form>
   </div>
 </div>

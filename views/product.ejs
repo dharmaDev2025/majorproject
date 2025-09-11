@@ -1,27 +1,27 @@
 <% layout('layouts/boiler') -%>
-<body>
-    <div class="container">
-     <ul>
-    <li><%= product.title %></li>
-    <li><%= product.description %></li>
-    <li><%= product.price %></li>
-    <li><%= product.location %></li>
-    <li><%= product.country %></li>
-    <li><%= product.country %></li>
 
-    <li><%= product.country %></li>
-    <li><%= product.country %></li>
-    <li><%= product.country %></li>
-    <li><%= product.country %></li>
-    <li><%= product.country %></li>
-    <li><%= product.country %></li>
-    <li><%= product.country %></li>
-    <li><%= product.country %></li>
-    <li><%= product.country %></li>
+<div class="row justify-content-center py-4">
+    <div class="col-md-6">
+        <div class="card product-card shadow-sm">
+            <img src="<%= product.image %>" class="card-img-top" alt="placeimage">
+            <div class="card-body">
+                <ul class="list-unstyled mb-3">
+                    <li><strong>Title:</strong> <%= product.title %></li>
+                    <li><strong>Description:</strong> <%= product.description %></li>
+                    <li><strong>Price:</strong> <%= product.price %>/-</li>
+                    <li><strong>Location:</strong> <%= product.location %></li>
+                    <li><strong>Country:</strong> <%= product.country %></li>
+                </ul>
 
-   </ul>
+                <!-- Buttons inside the card -->
+                <!-- Single form handling both Edit and Delete -->
+<form class="action-form d-flex justify-content-center gap-2 mt-3" method="POST" action="/product-action/<%= product.id %>">
+    <button type="submit" name="action" value="edit" class="edit-btn">Edit</button>
+    <button type="submit" name="action" value="delete" class="delete-btn">Delete</button>
+</form>
+
+
+            </div>
+        </div>
+    </div>
 </div>
-
-
-</body>
-

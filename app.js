@@ -75,21 +75,28 @@ app.post("/createnew",async(req,res)=>{
     
 
 })
+
 //delete
-app.get("/delete/:id",async(req,res)=>{
-    let{id}=req.params;
-    await Listing.findByIdAndDelete(id)
-    res.redirect("/listing");
-    
+app.post("/product-action/:id", async (req, res) => {
+    const { id } = req.params;
+    const { action } = req.body;
 
-
+    if (action === "edit") {
+        res.redirect(`/update/${id}`);
+    } else if (action === "delete") {
+        await Listing.findByIdAndDelete(id);
+        res.redirect("/listing");
+    } else {
+        res.redirect("/listing");
+    }
 });
 //update the route
-app.get("/update/:id", async(req,res)=>{
-    let{id}=req.params;
-    let product= await Listing.findById(id);
-    res.render("editform.ejs",{product});
-})
+app.get("/update/:id", async (req, res) => {
+    const { id } = req.params;
+    let product = await Listing.findById(id);
+    res.render("editform.ejs", { product });
+});
+
 app.put("/edit/:id", async(req,res)=>{
     const{id}=req.params;
     let{title}=req.body;
