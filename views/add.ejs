@@ -3,7 +3,7 @@
 <div class="row justify-content-center">
   <div class="col-md-6">
     <h2 class="mb-4 text-center">Add New Product</h2>
-    <form method="post" action="/createnew">
+    <form method="post" action="/createnew" novalidate  class="needs-validation">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" name="title" class="form-control" id="title" placeholder="Enter title" required>
@@ -11,7 +11,7 @@
 
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
-        <input type="number" name="price" class="form-control" id="price" placeholder="Enter price" required>
+        <input type="text" name="price" class="form-control" id="price" placeholder="Enter price" required>
       </div>
 
       <div class="mb-3">
