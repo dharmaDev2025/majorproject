@@ -3,7 +3,7 @@
 <div class="row justify-content-center">
   <div class="col-md-6">
     <h2 class="mb-4 text-center">UPDATE</h2>
-   <form method="POST" action="/edit/<%= product.id %>?_method=PUT" novalidate class="needs-validation">
+   <form method="POST" action="/edit/<%= product.id %>?_method=PUT" enctype="multipart/form-data" novalidate class="needs-validation">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" name="title" class="form-control" id="title" value="<%=product.title%>" required>
@@ -29,10 +29,15 @@
           <input type="text" name="location" class="form-control" id="location" value="<%=product.location%>" required>
         </div>
       </div>
+      <div class="mb-3">
+        Original Image<br>
+        <img src=<%=original %>>
+      </div>
+
 
       <div class="mb-3">
-        <label for="image" class="form-label">Image URL</label>
-        <input type="text" name="image" class="form-control" id="image" value="<%=product.image%>" required>
+        <label for="image" class="form-label">Upload File</label>
+        <input type="file" name="image" class="form-control" id="image"  required>
       </div>
  
       <div class="d-grid">

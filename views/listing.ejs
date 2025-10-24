@@ -1,11 +1,70 @@
 <% layout('layouts/boiler') -%>
-<body>
-  <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+
+<style>
+  #filters{
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+  .filter{
+    text-align: center;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+ .filter:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+.filter p{
+  font-size: 0.8rem;
+}
+</style>
+
+
+<div id="filters">
+  <div class="filter">
+    <i class="fa-solid fa-fire"></i>
+    <p>Treding</p>
+  </div>
+  <div class="filter">
+   <i class="fa-solid fa-bed"></i>
+    <p>Rooms</p>
+  </div>
+  <div class="filter">
+  <i class="fa-solid fa-mountain"></i>
+    <p>Mountain</p>
+  </div>
+  <div class="filter">
+  <i class="fa-brands fa-font-awesome"></i>
+    <p>Castels</p>
+  </div>
+   <div class="filter">
+ <i class="fa-solid fa-person-swimming"></i>
+    <p>Amezing Pools</p>
+  </div>
+  <div class="filter">
+   <i class="fa-solid fa-campground"></i>
+    <p>arc</p>
+  </div>
+  <div class="filter">
+   <i class="fa-solid fa-wheat-awn"></i>
+    <p>farms</p>
+  </div>
+  
+  
+  
+  
+
+
+
+</div>
+
+  <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 mt-2rem">
     <% for (let product of products) { %>
       <a href="/listing/<%=product.id%>" class="link-list">
     <div class="card" style="width: 20rem;">
       
-      <img src="<%= product.image %>" class="card-img-top" alt="image" style="height: 20rem;">
+      <img src="<%= product.image.url %>" class="card-img-top" alt="image" style="height: 20rem;">
       <div class="card-body">
         <p class="card-text"> 
           <%=product.title%><br>
@@ -17,4 +76,4 @@
   <% } %>
 
   </div>
-</body>
+

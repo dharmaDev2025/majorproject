@@ -3,7 +3,7 @@
 <div class="row justify-content-center">
   <div class="col-md-6">
     <h2 class="mb-4 text-center">Add New Product</h2>
-    <form method="post" action="/createnew" novalidate  class="needs-validation">
+    <form method="post" action="/createnew" novalidate  class="needs-validation" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" name="title" class="form-control" id="title" placeholder="Enter title" required>
@@ -31,8 +31,8 @@
       </div>
 
       <div class="mb-3">
-        <label for="image" class="form-label">Image URL</label>
-        <input type="text" name="image" class="form-control" id="image" placeholder="Enter image URL" required>
+        <label for="image" class="form-label">Upload Image</label>
+        <input type="file" name="image" class="form-control" id="image" required>
       </div>
  
       <div class="d-grid">

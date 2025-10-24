@@ -3,25 +3,81 @@
 <div class="row justify-content-center py-4">
     <div class="col-md-6">
         <div class="card product-card shadow-sm">
-            <img src="<%= product.image %>" class="card-img-top" alt="placeimage">
+            <img src="<%= product.image.url %>" class="card-img-top" alt="placeimage">
             <div class="card-body">
                 <ul class="list-unstyled mb-3">
+                    <li><strong>Owner:</strong> <%= product.owner.username %></li>
+                    
                     <li><strong>Title:</strong> <%= product.title %></li>
                     <li><strong>Description:</strong> <%= product.description %></li>
                     <li><strong>Price:</strong> <%= product.price %>/-</li>
                     <li><strong>Location:</strong> <%= product.location %></li>
                     <li><strong>Country:</strong> <%= product.country %></li>
+
                 </ul>
 
                 <!-- Buttons inside the card -->
                 <!-- Single form handling both Edit and Delete -->
-<form class="action-form d-flex justify-content-center gap-2 mt-3" method="POST" action="/product-action/<%= product.id %>">
-    <button type="submit" name="action" value="edit" class="edit-btn">Edit</button>
-    <button type="submit" name="action" value="delete" class="delete-btn">Delete</button>
-</form>
+                 <%if(curruser){%>
+
+                   
+                    <form class="action-form d-flex justify-content-center gap-2 mt-3" method="POST" action="/product-action/<%= product.id %>" novalidate class="needs-validation">
+                    <button type="submit" name="action" value="edit" class="edit-btn">Edit</button>
+                    <button type="submit" name="action" value="delete" class="delete-btn">Delete</button>
+                    </form>
+                    <%}%>
+
+            
+
 
 
             </div>
         </div>
     </div>
 </div>
+<hr/>
+<%if(curruser){%>
+<div class="col-8 offset-3">
+    <h4>
+Leave a review
+</h4>
+<form class="mt-3 mb-3" action="/listing/<%=product._id%>/reviews" method="POST">
+    <div class="mt-3 mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="range" min="1" max="5" id="rating" name="review[rating]">
+
+
+    </div>
+    <div>
+        <label for="comment" class="form-label"> Comments</label>
+        <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+
+    </div>
+    <div class="invalid-feedback">please enter the valid comments</div>
+    <button class="btn btn-outline-dark">submit</button>
+</form>
+</div>
+<%}%>
+<hr/>
+<h4>
+    REVIEWS ARE
+</h4>
+<div class="row">
+    <% for(review of product.reviews ){ %>  
+        <div class="card col-5 mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><%=review.author.username%></h5>
+                <p class="card-text"><%= review.comment %></p>
+                <p class="card-text"><%= review.rating %></p>
+                <form method="post" action="/listing/<%=product._id%>/reviews/<%=review._id%>?_method=DELETE">
+                    <button class="btn btn-outline-dark">delete</button>
+                </form>
+            </div>
+        </div>
+        <%}%>
+</div>
+
+
+
+
+
